@@ -1,0 +1,74 @@
+{% extends "bootstrap/base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+{% block content %}
+<body>
+<div class="container">
+<form action="/signup" method="POST" onsubmit="return validate();" class="form-horizontal">
+	<div class="form-group">
+    <label for="inputName3" class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control"  placeholder="Name" name="name" Required/>
+    </div>
+  </div>
+
+	<div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="email" placeholder="Email" name="mail" Required/>{{msg}}
+    </div>
+    </div>
+	<div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="txtpassword" placeholder="Password" name="password" Required/>
+    </div>
+  </div>
+	<div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Confirm Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="txtconfirmpassword" placeholder="Confirm Password" name="confirm_password" Required/>
+    </div>
+  </div>
+	<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+</form>
+
+<script type="text/javascript">
+	function validate(){
+		var email = document.getElementById("email").value;
+		var password = document.getElementById("txtpassword").value;
+		var confirm_password = document.getElementById("txtconfirmpassword").value;
+		var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		if (email.match(emailReg)) {
+			if (password==confirm_password) {
+				return true;}
+			else{
+				alert("password does not match");
+				return false;
+			}		
+
+
+		}
+		else{
+			alert("invalid email");
+			return false;
+		}
+	}
+</script>
+{% endblock %}
+</body>
+</html>
+
+
+
+
+
+
+

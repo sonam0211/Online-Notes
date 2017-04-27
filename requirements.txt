@@ -1,0 +1,6 @@
+flask
+peewee
+passlib
+flask_bootstrap
+uwsgi
+psycopg2

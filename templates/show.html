@@ -1,0 +1,21 @@
+{% extends "bootstrap/base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+{% block content %}
+<body>
+{% for i in text %}
+{{i}}
+<br>
+{% endfor %}
+<a class="btn btn-primary" href="/logout" role="button">Logout</a>
+<a class="btn btn-primary" href="{{url_for('goback',fid=fid)}}" role="button">Goback</a>
+
+
+</body>
+{% endblock %}
+</html>
+
+
